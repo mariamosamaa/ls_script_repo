@@ -4,16 +4,18 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout code from the 'main' branch
                 git branch: 'main', url: 'https://github.com/mariamosamaa/ls_script_repo.git'
             }
         }
         stage('Execute Script') {
             steps {
-                // Execute the ls.sh script
+                // Ensure the script is executable (if needed, though it's not required on Windows)
+                sh 'chmod +x ls.sh'
+                // Execute the script
                 sh './ls.sh'
             }
         }
     }
 }
+
 
