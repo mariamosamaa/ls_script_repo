@@ -9,8 +9,6 @@ pipeline {
         }
         stage('Execute Script') {
             steps {
-                // Ensure the script is executable (if needed, though it's not required on Windows)
-                sh 'chmod +x ls.sh'
                 // Execute the script
                 sh './ls.sh'
             }
