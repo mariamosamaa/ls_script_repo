@@ -1,0 +1,8 @@
+node {
+    stage('Clone Repository') {
+        git 'https://github.com/mariamosamaa/ls_script_repo.git'
+    }
+    stage('Execute Bash Script') {
+        sh './ls.sh'
+    }
+}
