@@ -12,14 +12,6 @@ pipeline {
 
                 // Execute the script
                 bat 'ls.sh'
-               script {
-                    def exitCode = sh returnStatus: true, script: './ls.sh'
-                    if (exitCode == 0) {
-                        echo 'Script executed successfully.'
-                    } else {
-                        error 'Script execution failed.'
-                    }
-                }
             }
         }
     }
