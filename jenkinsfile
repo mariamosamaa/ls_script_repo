@@ -1,8 +1,19 @@
-node {
-    stage('Clone Repository') {
-        git 'https://github.com/mariamosamaa/ls_script_repo.git'
-    }
-    stage('Execute Bash Script') {
-        sh './ls.sh'
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from the 'main' branch
+                git branch: 'main', url: 'https://github.com/mariamosamaa/ls_script_repo.git'
+            }
+        }
+        stage('Execute Script') {
+            steps {
+                // Execute the ls.sh script
+                sh './ls.sh'
+            }
+        }
     }
 }
+
