@@ -11,7 +11,7 @@ pipeline {
             steps {
 
                 // Execute the script
-                bat 'ls.sh'
+                bat 'so.bat'
             }
         }
     }
