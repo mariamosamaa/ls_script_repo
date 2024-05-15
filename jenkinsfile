@@ -1,17 +1,21 @@
 pipeline {
     agent any
-
+    
     stages {
-        stage('Run Bash Script') {
+        stage('Checkout') {
             steps {
-                script {
-                    sh 'chmod +x ./ls.sh'
-                    def output = sh(script: './ls.sh', returnStdout: true).trim()
-                    echo "Files:\n======\n${output}"
-                }
+                git branch: 'main', url: 'https://github.com/mariamosamaa/ls_script_repo.git'
+            }
+        }
+        stage('Execute Script') {
+            steps {
+
+                // Execute the script
+                bat 'so.bat'
             }
         }
     }
 }
+
 
 
